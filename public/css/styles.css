@@ -1,6 +1,206 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+/************************************
+  GLOBAL
+*************************************/
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+/************************************
+  HEADER BANNER
+*************************************/
+#top-header {
+  display: flex;
+  justify-content: space-between;   /* Locks corners */
+  align-items: center;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-bottom: 3px solid #333;
+}
+
+/* CSE Motors (left) */
+#top-header .siteName a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: white;
+}
+
+/* My Account (right) */
+#top-header #tools a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: white;
+}
+
+/************************************
+  NAVIGATION BAR
+*************************************/
+nav {
+  background: #f5f5f5;
+  border-bottom: 3px solid #333;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: white;
+}
+
+nav li {
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+nav li:hover {
+  background: #e0e0e0;
+}
+
+/************************************
+  HEADINGS — margins + borders
+*************************************/
+h1, h2, h3, h4, h5, h6 {
+  margin: 1rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #ccc;
+}
+
+/************************************
+  HERO SECTION
+*************************************/
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: white;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.7);
+}
+
+.hero-text h1 {
+  margin: 0;
+  border-bottom: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.hero-text p {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+}
+
+/************************************
+  REVIEWS SECTION
+*************************************/
+.reviews {
+  padding: 1.5rem;
+}
+
+.reviews ul {
+  padding-left: 1.2rem;
+}
+
+.reviews li {
+  margin-bottom: 0.6rem;
+}
+
+/************************************
+  UPGRADES SECTION
+*************************************/
+.upgrades {
+  padding: 1.5rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.upgrade-card {
+  background: #eee;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.upgrade-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-card p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/************************************
+  DESKTOP VIEW
+*************************************/
+@media (min-width: 900px) {
+
+  body {
+    background-image: url("/images/site/checkerboard.jpg");
+    background-repeat: repeat;
+  }
+
+  .home {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border: 2px solid #999;
+    border-radius: 6px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .upgrade-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/************************************
+  FOOTER
+*************************************/
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
 }
