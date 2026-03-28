@@ -1,0 +1,7 @@
+1. Create New Database
+2. Link Internal Render Web Service
+3. Link External SQL Tools
+4. Link External PGAdmin
+5. Link External to .env file
+6. Run Query to Rebuild SQL
+
