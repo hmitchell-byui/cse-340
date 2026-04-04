@@ -1,5 +1,15 @@
 const invModel = require("../models/inventory-model")
+
 const Util = {}
+
+/* ****************************************
+*  Error Handling Wrapper
+* *************************************** */
+Util.handleErrors = function (fn) {
+  return function (req, res, next) {
+    Promise.resolve(fn(req, res, next)).catch(next)
+  }
+}
 
 /* ************************
  * Build the nav
@@ -91,6 +101,5 @@ Util.buildVehicleDetailHTML = async function (vehicle) {
 
   return html
 }
-
 
 module.exports = Util
