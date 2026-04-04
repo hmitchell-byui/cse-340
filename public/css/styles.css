@@ -339,6 +339,106 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* ============================
+   Add Inventory Form Styling
+   ============================ */
+
+#add-inventory {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#add-inventory h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Form layout */
+.inventory-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+/* Labels */
+.inventory-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs, selects, textareas */
+.inventory-form input,
+.inventory-form select,
+.inventory-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fafafa;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.inventory-form input:focus,
+.inventory-form select:focus,
+.inventory-form textarea:focus {
+  border-color: darkturquoise;
+  background: #fff;
+  outline: none;
+}
+
+/* Textarea */
+.inventory-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit button */
+.inventory-form button {
+  padding: 0.9rem;
+  background: darkturquoise;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.inventory-form button:hover {
+  background: #008c99;
+}
+
+/* Flash messages */
+.notice {
+  background: #ffe9b3;
+  border-left: 4px solid #ffb300;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  color: #5a4500;
+  font-weight: 500;
+}
+
+/* Error list */
+.notice ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  #add-inventory {
+    padding: 1.2rem;
+  }
+}
+
+
 /**************************************
   Inventory Display
 **************************************/
