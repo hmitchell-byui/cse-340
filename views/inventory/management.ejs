@@ -1,0 +1,25 @@
+<main id="inv-management">
+  <h1><%= title %></h1>
+
+  <!-- Flash Message -->
+  <% if (locals.message && locals.message.length > 0) { %>
+    <div class="notice"><%= message %></div>
+  <% } %>
+
+  <!-- Validation Errors -->
+  <% if (errors && errors.length > 0) { %>
+    <ul class="notice">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <p>Choose an option below to manage vehicle classifications and inventory.</p>
+
+  <ul class="management-links">
+    <li><a href="/inv/add-classification">Add New Classification</a></li>
+    <li><a href="/inv/add-inventory">Add New Inventory Item</a></li>
+  </ul>
+</main>
+
