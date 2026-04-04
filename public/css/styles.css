@@ -207,6 +207,22 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
+/* Password rules box */
+.password-rules {
+  background: #f7f7f7;
+  border-left: 4px solid darkturquoise;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.password-rules ul {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+
 /************************************
   HERO SECTION
 *************************************/
@@ -392,6 +408,8 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
   }
 }
+
+
 
 /************************************
   FOOTER
