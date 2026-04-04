@@ -29,8 +29,15 @@ app.use(static)
 // Index route
 app.get("/", baseController.buildHome)
 
+
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+
+// Intentional error route for Task 3
+app.get("/cause-error", (req, res, next) => {
+  next(new Error("This is an intentional error for testing the error handler."))
+})
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
@@ -44,7 +51,9 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  res.render("errors/error", {
+  res
+    .status(err.status || 500)
+    .render("errors/error", {
     title: err.status || 'Server Error',
     message: err.message,
     nav

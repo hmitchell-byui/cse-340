@@ -3,10 +3,16 @@ const utilities = require("../utilities/")
 
 const invCont = {}
 
+// All controller functions must have a try/catch block to catch any errors 
+// that may occur and pass them to the next middleware (the error handler) with the next() function.
+// This is a common pattern in Express applications to ensure that errors are handled gracefully 
+// and do not crash the server.
+
 /* ***************************
  *  Build inventory by classification view
  * ************************** */
 invCont.buildByClassificationId = async function (req, res, next) {
+  try {
   const classification_id = req.params.classificationId
   const data = await invModel.getInventoryByClassificationId(classification_id)
   const grid = await utilities.buildClassificationGrid(data)
@@ -17,6 +23,9 @@ invCont.buildByClassificationId = async function (req, res, next) {
     nav,
     grid,
   })
+  } catch (error) {
+    next(error)
+  }
 }
 
 /* ***************************
@@ -39,6 +48,62 @@ invCont.buildByInvId = async function (req, res, next) {
   }
 }
 
+// Build add inventory view
+invCont.buildAddInventory = async function (req, res, next) {
+  try {
+    const nav = await utilities.getNav()
+    const classifications = await invModel.getClassifications()
+
+    res.render("./inventory/add-inventory", {
+      title: "Add New Vehicle",
+      nav,
+      classifications: classifications.rows,
+      errors: null
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+// Handle add inventory form submission
+invCont.addInventory = async function (req, res, next) {
+  try {
+    const {
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      classification_id
+    } = req.body
+
+    const result = await invModel.addInventory(
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      classification_id
+    )
+
+    if (result) {
+      req.flash("notice", "Vehicle successfully added.")
+      res.redirect("/inv")
+    } else {
+      req.flash("notice", "Failed to add vehicle.")
+      res.redirect("/inv/add")
+    }
+  } catch (error) {
+    next(error)
+  }
+}
 
 
   module.exports = invCont
